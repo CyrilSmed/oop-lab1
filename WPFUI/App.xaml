@@ -4,6 +4,20 @@
              xmlns:local="clr-namespace:WPFUI"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- Base Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        
+        <!-- Application Colors -->
+        <SolidColorBrush x:Key="Background">#373C3E</SolidColorBrush>
+        <SolidColorBrush x:Key="DarkBackground">#242627</SolidColorBrush>
+        <SolidColorBrush x:Key="LightBackground">#43484B</SolidColorBrush>
+        <SolidColorBrush x:Key="Foreground">#F2F2F0</SolidColorBrush>
+        <SolidColorBrush x:Key="Accent">#0FA0C1</SolidColorBrush>
+        <SolidColorBrush x:Key="DarkAccent">#213237</SolidColorBrush>
+        <SolidColorBrush x:Key="AccentNegative">#A64444</SolidColorBrush> 
+
     </Application.Resources>
 </Application>
