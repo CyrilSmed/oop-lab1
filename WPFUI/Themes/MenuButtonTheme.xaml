@@ -12,7 +12,7 @@
                               Background="{TemplateBinding Background}">
                             <TextBlock Text="{TemplateBinding Property=Content}"
                                        VerticalAlignment="Center"
-                                       Margin="30, 0, 0, 0"/>
+                                       Margin="20, 0, 0, 0"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -20,7 +20,7 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Height" Value="50"/>
-            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="{StaticResource Foreground}"/>
         </Style.Setters>
 

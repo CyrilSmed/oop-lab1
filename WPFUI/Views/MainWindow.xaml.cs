@@ -28,7 +28,6 @@ namespace WPFUI.Views
 
             ViewModel = new MainWindowViewModel();
             ViewModel.View = this;
-            DataContext = ViewModel;
         }
     }
 }

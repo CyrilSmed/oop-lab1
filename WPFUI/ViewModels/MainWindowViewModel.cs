@@ -5,20 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using WPFUI.Views;
 
 namespace WPFUI.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        #region private fields
+        private object _currentView;
+        public object CurrentView
+        {
+            get { return _currentView; }
+            set 
+            {
+                _currentView = value;
+                RaisePropertyChanged();
+            }
+        }
 
-        #endregion
+        public PrimitiveControlsPageView PrimitiveControlsView { get; set; }
 
-        #region public properties
         public IMainWindow View { get; set; }
-        #endregion
 
-        public MainWindowViewModel() { }
+        public MainWindowViewModel() 
+        {
+            PrimitiveControlsView = new PrimitiveControlsPageView();
+            CurrentView = PrimitiveControlsView;
+        }
 
         #region WPF Binding
         public event PropertyChangedEventHandler PropertyChanged;

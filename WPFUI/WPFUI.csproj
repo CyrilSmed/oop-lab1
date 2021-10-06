@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Poppins-Regular.ttf" />
     <None Remove="Resources\cross.png" />
     <None Remove="Resources\data-set.png" />
     <None Remove="Resources\forward.png" />
@@ -24,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\Poppins-Regular.ttf" />
     <Resource Include="Resources\cross.png" />
     <Resource Include="Resources\data-set.png" />
     <Resource Include="Resources\forward.png" />

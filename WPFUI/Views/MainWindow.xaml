@@ -4,35 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI.Views"
+        xmlns:viewModel="clr-namespace:WPFUI.ViewModels"
         mc:Ignorable="d"
         Height="600" Width="920" ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
-        WindowStyle="None">
+        WindowStyle="None"
+        FontSize="16" Foreground="{StaticResource Foreground}"
+        FontFamily="/Fonts/#Poppins">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
     <Border Background="{StaticResource DarkBackground}" 
             CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="240"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="Lab Work I"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="{StaticResource Foreground}"
-                       FontSize="28" Margin="20,0,0,0"/>
+                       FontSize="28" Margin="20,0,0,1"/>
             <Image Source="/Resources/project-icon.png" 
                    HorizontalAlignment="Right"
                    Height="30"
-                   Margin="0,0,10,0" Stretch="Uniform"
+                   Margin="0,5,20,0" Stretch="Uniform"
                    RenderOptions.BitmapScalingMode="HighQuality"/>
             <TextBox Width="250"
                      Grid.Column="1"
@@ -41,15 +45,17 @@
                      Style="{StaticResource RoundedTextBox}"
                      Tag="Search"/>
 
-            <StackPanel Grid.Row="1" Grid.Column="0">
-                <RadioButton Content="Buttons"
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="0, 30">
+                <RadioButton Content="Primitive Controls" IsChecked="True"
                              Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="Text"
-                             Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="ListViews"
+                <RadioButton Content="ListViews and Objects"
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
-        </Grid>
 
+            <ContentControl Grid.Row="1" Grid.Column="1"
+                            Margin="30, 10, 10, 10"
+                            Content="{Binding CurrentView}"/>
+
+        </Grid>
     </Border>
 </Window>
