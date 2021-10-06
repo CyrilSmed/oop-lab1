@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="Background">#373C3E</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkBackground">#242627</SolidColorBrush>
+    <SolidColorBrush x:Key="LightBackground">#43484B</SolidColorBrush>
+    <SolidColorBrush x:Key="Foreground">#F2F2F0</SolidColorBrush>
+    <SolidColorBrush x:Key="GreyForeground">#8C8C88</SolidColorBrush>
+    <SolidColorBrush x:Key="Accent">#0FA0C1</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkAccent">#213237</SolidColorBrush>
+    <SolidColorBrush x:Key="AccentNegative">#A64444</SolidColorBrush>
+</ResourceDictionary>
