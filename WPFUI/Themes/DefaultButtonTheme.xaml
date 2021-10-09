@@ -4,8 +4,6 @@
         <Setter Property="Background" Value="{StaticResource DarkAccent}"/>
         <Setter Property="Foreground" Value="{StaticResource Foreground}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Width" Value="160"/>
-        <Setter Property="Height" Value="40"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
 
         <Setter Property="Template">
@@ -21,7 +19,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource DarkBackground}"/>
+                <Setter Property="Background" Value="{StaticResource LightBackground}"/>
             </Trigger>
         </Style.Triggers>
         

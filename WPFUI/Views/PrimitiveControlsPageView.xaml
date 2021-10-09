@@ -48,7 +48,8 @@
                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
                    Margin="0, 10" FontSize="20"
                    TextWrapping="WrapWithOverflow"/>
-                <Button Grid.Row="1" Grid.Column="1" Margin="0, 10" Click="buttonBlue_Click">
+                <Button Grid.Row="1" Grid.Column="1" Margin="0, 10" Click="buttonBlue_Click"
+                        Width="120" Height="30">
                     Blue
                 </Button>
                 <Border x:Name="buttonBlue" Grid.Row="1" Grid.Column="2"
@@ -59,7 +60,8 @@
                     VerticalAlignment="Center"
                     Margin="10, 0"/>
 
-                <Button x:Name="buttonRed" Grid.Row="2" Grid.Column="1" Margin="0, 10" Click="buttonRed_Click">
+                <Button x:Name="buttonRed" Grid.Row="2" Grid.Column="1" Margin="0, 10" Click="buttonRed_Click"
+                        Width="120" Height="30">
                     Red
                 </Button>
                 <Border Grid.Row="2" Grid.Column="2"
@@ -70,7 +72,8 @@
                     VerticalAlignment="Center"
                     Margin="10, 0"/>
 
-                <Button x:Name="buttonGreen" Grid.Row="3" Grid.Column="1" Margin="0, 10" Click="buttonGreen_Click">
+                <Button x:Name="buttonGreen" Grid.Row="3" Grid.Column="1" Margin="0, 10" Click="buttonGreen_Click"
+                        Width="120" Height="30">
                     Green
                 </Button>
                 <Border Grid.Row="3" Grid.Column="2"

@@ -11,7 +11,7 @@
         AllowsTransparency="True"
         WindowStyle="None"
         FontSize="16" Foreground="{StaticResource Foreground}"
-        FontFamily="/Fonts/#Poppins">
+        FontFamily="/Fonts/#Poppins" MouseDown="Window_MouseDown">
     <!--<Window.DataContext>
         <viewModel:MainWindowViewModel/>
     </Window.DataContext>-->
@@ -28,7 +28,32 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Lab Work I"
+            <Grid x:Name="TopBar" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1"
+                        Background="Transparent"
+                        Height="24" Width="40" Click="Minimize_Click" Margin="0,5,0,0">
+                    <Image Source="/Resources/minimize.png" 
+                        HorizontalAlignment="Right"
+                        Height="16" Stretch="Uniform"
+                        RenderOptions.BitmapScalingMode="HighQuality"/>
+                </Button>
+                <Button Grid.Column="2"
+                        Background="Transparent"
+                        Height="24" Width="40" Click="Close_Click" Margin="0,5,5,0">
+                    <Image Source="/Resources/cross.png" 
+                        HorizontalAlignment="Right"
+                        Height="16" Stretch="Uniform"
+                        RenderOptions.BitmapScalingMode="HighQuality"/>
+                </Button>
+            </Grid>
+
+            <TextBlock Text="Lab Work I" 
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="{StaticResource Foreground}"
@@ -55,7 +80,6 @@
             <ContentControl Grid.Row="1" Grid.Column="1"
                             Margin="30, 10, 10, 10"
                             Content="{Binding CurrentView}"/>
-
         </Grid>
     </Border>
 </Window>

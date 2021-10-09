@@ -33,6 +33,26 @@ namespace WPFUI.Views
             ViewModel.View = this;
 
             DataContext = ViewModel;
+
+            Debug.WriteLine($"Info: height = {TopBar.ActualHeight} width = {TopBar.ActualWidth}");
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }
