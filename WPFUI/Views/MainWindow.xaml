@@ -12,9 +12,9 @@
         WindowStyle="None"
         FontSize="16" Foreground="{StaticResource Foreground}"
         FontFamily="/Fonts/#Poppins">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <viewModel:MainWindowViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Border Background="{StaticResource DarkBackground}" 
             CornerRadius="10">
         <Grid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,10 +25,14 @@ namespace WPFUI.Views
         public MainWindowViewModel ViewModel { get; set; }
         public MainWindow()
         {
+            Debug.WriteLine("Info: MainWindow instantiated");
+
             InitializeComponent();
 
             ViewModel = new MainWindowViewModel();
             ViewModel.View = this;
+
+            DataContext = ViewModel;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,7 +13,7 @@ namespace WPFUI.ViewModels
     {
         public PrimitiveControlsPageViewModel() 
         {
-            //Console.WriteLine("Debug: PrimitiveControlsPageViewModel Instantiated");
+            Debug.WriteLine("Info: PrimitiveControlsPageViewModel instantiated");
         }
 
         private string _creativeColorOutput;
@@ -57,8 +58,6 @@ namespace WPFUI.ViewModels
                 case Colors.Green:
                     CreativeColorOutput = "Green is not a creative color";
                     break;
-
-
             }
         }
 

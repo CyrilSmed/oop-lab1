@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using WPFUI.Views;
+using System.Diagnostics;
 
 namespace WPFUI.ViewModels
 {
@@ -28,6 +29,8 @@ namespace WPFUI.ViewModels
 
         public MainWindowViewModel() 
         {
+            Debug.WriteLine("Info: MainWindowViewModel instantiated");
+
             PrimitiveControlsView = new PrimitiveControlsPageView();
             CurrentView = PrimitiveControlsView;
         }

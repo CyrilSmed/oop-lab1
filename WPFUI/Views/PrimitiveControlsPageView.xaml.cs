@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,15 @@ namespace WPFUI.Views
     /// </summary>
     public partial class PrimitiveControlsPageView : UserControl
     {
-        public PrimitiveControlsPageViewModel PrimitiveControlsVM { get; set; }
+        public PrimitiveControlsPageViewModel ViewModel { get; set; }
         public PrimitiveControlsPageView()
         {
             InitializeComponent();
-            PrimitiveControlsVM = new PrimitiveControlsPageViewModel();
+
+            Debug.WriteLine("Info: PrimitiveControlsPageView instantiated");
+
+            ViewModel = new PrimitiveControlsPageViewModel();
+            DataContext = ViewModel;
         }
 
         private void buttonBlue_Click(object sender, RoutedEventArgs e)

@@ -8,9 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="505" d:DesignWidth="640"
              Style="{StaticResource DefaultUserControlStyle}">
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <viewModel:PrimitiveControlsPageViewModel/>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="280"/>
