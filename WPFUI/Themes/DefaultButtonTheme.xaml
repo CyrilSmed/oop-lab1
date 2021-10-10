@@ -5,6 +5,7 @@
         <Setter Property="Foreground" Value="{StaticResource Foreground}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Height" Value="30"/>
 
         <Setter Property="Template">
             <Setter.Value>

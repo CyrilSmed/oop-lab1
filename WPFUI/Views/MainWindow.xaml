@@ -19,7 +19,7 @@
             CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="220"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -61,19 +61,22 @@
             <Image Source="/Resources/project-icon.png" 
                    HorizontalAlignment="Right"
                    Height="30"
-                   Margin="0,5,20,0" Stretch="Uniform"
+                   Margin="0,5,10,0" Stretch="Uniform"
                    RenderOptions.BitmapScalingMode="HighQuality"/>
-            <TextBox Width="250"
+            <TextBox Width="250" Height="35"
                      Grid.Column="1"
                      HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
                      Margin="50, 0, 0, 0"
                      Style="{StaticResource RoundedTextBox}"
                      Tag="Search"/>
 
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="0, 30">
-                <RadioButton Content="Primitive Controls" IsChecked="True"
+                <RadioButton Content="Primitive Stuff" IsChecked="True"
                              Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="ListViews and Objects"
+                <RadioButton Content="Seemingly Rough"
+                             Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Private Enough"
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
 

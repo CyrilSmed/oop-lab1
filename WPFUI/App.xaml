@@ -13,7 +13,10 @@
                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml"/>
                 <ResourceDictionary Source="Themes/DefaultButtonTheme.xaml"/>
                 <ResourceDictionary Source="Themes/DefaultUserControlTheme.xaml"/>
+                <ResourceDictionary Source="Themes/DefaultCheckBox.xaml"/>
+                <ResourceDictionary Source="Themes/DefaultSlider.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

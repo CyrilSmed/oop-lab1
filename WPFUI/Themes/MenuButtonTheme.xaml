@@ -27,6 +27,7 @@
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="{StaticResource DarkAccent}"/>
+                <Setter Property="Foreground" Value="{StaticResource Accent}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

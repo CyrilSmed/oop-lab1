@@ -2,23 +2,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style TargetType="{x:Type TextBox}"
            x:Key="RoundedTextBox">
+        <Setter Property="Background" Value="{StaticResource DarkAccent}"/>
+        <Setter Property="Foreground" Value="{StaticResource Foreground}"/>
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border CornerRadius="5"
-                            Background="{StaticResource DarkAccent}"
-                            Height="30">
+                            Background="{TemplateBinding Background}"
+                            Height="35">
                         <Grid>
-                            <Rectangle StrokeThickness="1"/>
+                            <Rectangle StrokeThickness="10"/>
                             <TextBox x:Name="CustomTextBox"
                                      Margin="1"
-                                     Text="{TemplateBinding Text}"
+                                     Text="{Binding Text, RelativeSource={RelativeSource AncestorType={x:Type TextBox}}, Mode=TwoWay}"
                                      BorderThickness="0"
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      FontSize="15"
                                      Padding="5"
-                                     Foreground="{StaticResource Foreground}"/>
+                                     Foreground="{TemplateBinding Foreground}"/>
                             <TextBlock x:Name="Hint"
                                        IsHitTestVisible="False"
                                        Text="{TemplateBinding Tag}"

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using WPFUI.Handlers.PrimitiveControlsHandlers;
 
 namespace WPFUI.ViewModels
 {
@@ -15,50 +16,68 @@ namespace WPFUI.ViewModels
         {
             Debug.WriteLine("Info: PrimitiveControlsPageViewModel instantiated");
         }
+        public PrimitiveControlsPageViewModel(IPrimitiveControlsPageView view)
+        {
+            View = view;
+            Debug.WriteLine("Info: PrimitiveControlsPageViewModel instantiated");
+        }
 
-        private string _creativeColorOutput;
+        public IPrimitiveControlsPageView View { get; set; }
+
+
+        
+        private string _name = "";
+        public string Name 
+        { 
+            get { return _name; }
+            set 
+            {
+                _name = value;
+                RaisePropertyChanged();
+            } 
+        }
+
+        private string _surname = "";
+        public string Surname
+        {
+            get { return _surname; }
+            set
+            {
+                _surname = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
+
+        private CreativeColorSelectionHandler colorHandler = new CreativeColorSelectionHandler();
+        private string _creativeColorOutput = "";
         public string CreativeColorOutput
         {
             get { return _creativeColorOutput; }
             set 
-            { 
+            {
                 _creativeColorOutput = value;
                 RaisePropertyChanged();
             }
         }
 
-        public enum Colors
-        {
-            Red,
-            Green,
-            Blue
+        public CreativeColorSelectionHandler.Color SelectedColor { 
+            get
+            {
+                return colorHandler.SelectedColor;
+            }
+            set
+            {
+                colorHandler.SelectedColor = value;
+                RaisePropertyChanged();
+            }
         }
 
-        private int curReactionIndex = 0;
-        private List<string> positiveSelectionReactions = new List<string>
-        { 
-            "Good one",
-            "I would have picked that one myself",
-            "A very nice color",
-            "Lovely indeed"
-        };
 
-        public void SelectColor(Colors color)
+        public void SelectColor(CreativeColorSelectionHandler.Color color)
         {
-            switch (color)
-            {
-                case Colors.Red:
-                    CreativeColorOutput = positiveSelectionReactions[curReactionIndex];
-                    curReactionIndex = (curReactionIndex + 1) % positiveSelectionReactions.Count;
-                    break;
-                case Colors.Blue:
-                    CreativeColorOutput = positiveSelectionReactions[curReactionIndex];
-                    curReactionIndex = (curReactionIndex + 1) % positiveSelectionReactions.Count;
-                    break;
-                case Colors.Green:
-                    CreativeColorOutput = "Green is not a creative color";
-                    break;
-            }
+            CreativeColorOutput = colorHandler.SelectColorReturnResponse(color);
         }
 
 

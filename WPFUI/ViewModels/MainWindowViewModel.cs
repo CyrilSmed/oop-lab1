@@ -12,6 +12,14 @@ namespace WPFUI.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        public MainWindowViewModel() 
+        {
+            Debug.WriteLine("Info: MainWindowViewModel instantiated");
+
+            PrimitiveControlsView = new PrimitiveControlsPageView();
+            CurrentView = PrimitiveControlsView;
+        }
+
         private object _currentView;
         public object CurrentView
         {
@@ -26,14 +34,6 @@ namespace WPFUI.ViewModels
         public PrimitiveControlsPageView PrimitiveControlsView { get; set; }
 
         public IMainWindow View { get; set; }
-
-        public MainWindowViewModel() 
-        {
-            Debug.WriteLine("Info: MainWindowViewModel instantiated");
-
-            PrimitiveControlsView = new PrimitiveControlsPageView();
-            CurrentView = PrimitiveControlsView;
-        }
 
         #region WPF Binding
         public event PropertyChangedEventHandler PropertyChanged;
