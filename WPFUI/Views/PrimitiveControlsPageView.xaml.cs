@@ -42,35 +42,48 @@ namespace WPFUI.Views
             ViewModel = new PrimitiveControlsPageViewModel(this);
             InitializeComponent();
 
+            foreach (Border border in gridColorUtilization.Children)
+            {
+                border.MouseEnter += panel_MouseEnter;
+            }
+
+
+            //TODO: where to do that
             panelCreativeColors.Visibility = Visibility.Hidden;
+            panelColorAmplification.Visibility = Visibility.Hidden;
+            panelColorUtilization.Visibility = Visibility.Hidden;
         }
 
-        private void submit_Click(object sender, RoutedEventArgs e)
+        private void submitRegistration_Click(object sender, RoutedEventArgs e)
         {
-            // Super ugly and it smells too
+            // TODO: how to properly validate fields
+            SolidColorBrush highlightColor = FindResource("AccentNegative") as SolidColorBrush;
+            SolidColorBrush defaultColor = FindResource("DarkAccent") as SolidColorBrush;
+
             if (ViewModel.Name == "")
             {
-                textBoxName.Background = FindResource("AccentNegative") as SolidColorBrush;
+                textBoxName.Background = highlightColor;
             }
             else if(ViewModel.Surname == "")
             {
-                textBoxSurname.Background = FindResource("AccentNegative") as SolidColorBrush;
+                textBoxSurname.Background = highlightColor;
             }
             else if(checkBoxAgree.IsChecked == false)
             {
-                checkBoxAgree.Background = FindResource("AccentNegative") as SolidColorBrush;
+                checkBoxAgree.Background = highlightColor;
             }
             else
             {
-                textBoxName.Background = FindResource("DarkAccent") as SolidColorBrush;
-                textBoxSurname.Background = FindResource("DarkAccent") as SolidColorBrush;
-                checkBoxAgree.Background = FindResource("DarkAccent") as SolidColorBrush;
+                textBoxName.Background = defaultColor;
+                textBoxSurname.Background = defaultColor;
+                checkBoxAgree.Background = defaultColor;
 
+                //TODO: Where to handle that
                 panelCreativeColors.Visibility = Visibility.Visible;
-                panelRegistration.IsEnabled = false;
             }
         }
 
+        //TODO: How to organize highlight, dehighlight logic
         private void buttonBlue_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.SelectColor(CreativeColorSelectionHandler.Color.Blue);
@@ -93,5 +106,69 @@ namespace WPFUI.Views
             borderGreen.Background = FindResource("DarkGreen") as SolidColorBrush;
         }
 
+        //TODO: Where to handle that better
+
+        private void submitColor_Click(object sender, RoutedEventArgs e)
+        {
+            if(ViewModel.SelectedColor != CreativeColorSelectionHandler.Color.Undefined)
+            {
+                ViewModel.CreativeColorOutput = "";
+                panelColorAmplification.Visibility = Visibility.Visible;
+                borderChosenCreativeColor.Background = GetColor(ViewModel.SelectedColor);
+
+                ViewModel.ColorAmplification = 0;
+            }
+        }
+
+        private SolidColorBrush GetColor(CreativeColorSelectionHandler.Color color)
+        {
+            SolidColorBrush returnColor = new SolidColorBrush(); ;
+            switch (color)
+            {
+                case CreativeColorSelectionHandler.Color.Blue:
+                    returnColor = FindResource("Blue") as SolidColorBrush;
+                    break;
+                case CreativeColorSelectionHandler.Color.Red:
+                    returnColor = FindResource("Red") as SolidColorBrush;
+                    break;
+                case CreativeColorSelectionHandler.Color.Green:
+                    returnColor = FindResource("Green") as SolidColorBrush;
+                    break;
+            }
+            return returnColor;
+        }
+
+        private void autofill_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Name = "Guest";
+            ViewModel.Surname = "None";
+            checkBoxAgree.IsChecked = true;
+        }
+
+        public int MaxColorAmplification
+        {
+            get { return (int)sliderColorAmplifier.Maximum; }
+        }
+
+        public void ColorIsAmplified(bool isAmplified)
+        {
+            if(isAmplified == true)
+            {
+                panelColorUtilization.Visibility = Visibility.Visible;
+                sliderColorAmplifier.Maximum = panelColorAmplification.ActualWidth
+                    - panelColorAmplification.Margin.Left - panelColorAmplification.Margin.Right;
+                postAmplificationInstructionBox.Text = "Utilize your amlified creative color";
+            }
+            else
+            {
+                panelColorUtilization.Visibility = Visibility.Hidden;
+                postAmplificationInstructionBox.Text = "";
+            }
+        }
+
+        public void panel_MouseEnter(object sender, EventArgs e)
+        {
+            ((Border)sender).Background = GetColor(ViewModel.SelectedColor);
+        }
     }
 }

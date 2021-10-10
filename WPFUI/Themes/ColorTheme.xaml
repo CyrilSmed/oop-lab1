@@ -7,12 +7,12 @@
     <SolidColorBrush x:Key="GreyForeground">#8C8C88</SolidColorBrush>
     <SolidColorBrush x:Key="Accent">#0FA0C1</SolidColorBrush>
     <SolidColorBrush x:Key="DarkAccent">#213237</SolidColorBrush>
-    <SolidColorBrush x:Key="AccentNegative">#6E2D2D</SolidColorBrush> 
+    <SolidColorBrush x:Key="AccentNegative">#59261B</SolidColorBrush> 
     
     <SolidColorBrush x:Key="Red">#A64444</SolidColorBrush>
-    <SolidColorBrush x:Key="DarkRed">#6E2D2D</SolidColorBrush>
-    <SolidColorBrush x:Key="Green">#1F8C4E</SolidColorBrush>
-    <SolidColorBrush x:Key="DarkGreen">#13542F</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkRed">#59261B</SolidColorBrush>
+    <SolidColorBrush x:Key="Green">#70B85D</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkGreen">#325940</SolidColorBrush>
     <SolidColorBrush x:Key="Blue">#0FA0C1</SolidColorBrush>
     <SolidColorBrush x:Key="DarkBlue">#213237</SolidColorBrush>
 </ResourceDictionary>

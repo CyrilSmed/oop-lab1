@@ -6,11 +6,8 @@
              xmlns:local="clr-namespace:WPFUI.Views"
              xmlns:viewModel="clr-namespace:WPFUI.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="505" d:DesignWidth="640"
+             d:DesignHeight="515" d:DesignWidth="670"
              Style="{StaticResource DefaultUserControlStyle}">
-    <!--<UserControl.DataContext>
-        <viewModel:PrimitiveControlsPageViewModel/>
-    </UserControl.DataContext>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -19,7 +16,6 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -31,30 +27,41 @@
                 HorizontalAlignment="Left"
                 Padding="10,0"
                 Background="{StaticResource Background}">
-            <StackPanel>
-                <TextBlock Text="Register"
+            <Grid>
+                <StackPanel>
+                    <TextBlock Text="Register"
                    Margin="0, 10" FontSize="20"
                    TextWrapping="WrapWithOverflow"/>
 
-                <TextBox x:Name="textBoxName" 
+                    <TextBox x:Name="textBoxName" 
                          HorizontalAlignment="Stretch"  
                          Style="{StaticResource RoundedTextBox}"
                          Text="{Binding Name, Mode=TwoWay}"
                          Tag="Name" Margin="0, 5"/>
 
-                <TextBox x:Name="textBoxSurname" 
+                    <TextBox x:Name="textBoxSurname" 
                         HorizontalAlignment="Stretch"
                         Style="{StaticResource RoundedTextBox}"
                         Text="{Binding Surname, Mode=TwoWay}"
                         Tag="Surname" Margin="0,5"/>
-                <CheckBox x:Name="checkBoxAgree" Margin="0,5" FontSize="12" Content=" Agree with everything"/>
-                <Button HorizontalAlignment="Stretch"
-                        Margin="0,70,0,0" Click="submit_Click"
-                        VerticalAlignment="Bottom">
-                    Submit
-                </Button>
+                    <CheckBox x:Name="checkBoxAgree" Margin="0,5" FontSize="12" Content=" Accept unacceptable"/>
 
-            </StackPanel>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Bottom">
+                    <Button HorizontalAlignment="Stretch"
+                            Click="autofill_Click"
+                            VerticalAlignment="Bottom"
+                            Background="{StaticResource DarkBackground}"
+                            Foreground="{StaticResource GreyForeground}">
+                        Autofill
+                    </Button>
+                    <Button HorizontalAlignment="Stretch"
+                        Margin="0,10,0,10" Click="submitRegistration_Click"
+                        VerticalAlignment="Bottom">
+                        Submit
+                    </Button>
+                </StackPanel>
+            </Grid>
         </Border>
 
         <!-- Creative color panel -->
@@ -78,13 +85,14 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="Please select a creative color" 
                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
                    Margin="0, 10" FontSize="20"
                    TextWrapping="WrapWithOverflow"/>
-                <Button Grid.Row="1" Grid.Column="1" Margin="0, 10" Click="buttonBlue_Click"
+                <Button Grid.Row="1" Grid.Column="1" Margin="0, 5" Click="buttonBlue_Click"
                         Width="110" Height="30">
                     Blue
                 </Button>
@@ -96,7 +104,7 @@
                     VerticalAlignment="Center"
                     Margin="10,0,0,0"/>
 
-                <Button Grid.Row="2" Grid.Column="1" Margin="0, 10" Click="buttonRed_Click"
+                <Button Grid.Row="2" Grid.Column="1" Margin="0, 5" Click="buttonRed_Click"
                         Width="110" Height="30">
                     Red
                 </Button>
@@ -110,7 +118,7 @@
                     Margin="10,0,0,0"/>
 
                 <Button Grid.Row="3" Grid.Column="1" 
-                        Margin="0, 10" Click="buttonGreen_Click"
+                        Margin="0, 5" Click="buttonGreen_Click"
                         Width="110" Height="30">
                     Green
                 </Button>
@@ -124,17 +132,23 @@
                     Margin="10,0,0,0"/>
                 <TextBlock Text="{Binding CreativeColorOutput}" 
                            Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
-                           TextWrapping="WrapWithOverflow" Height="50"
-                           Foreground="{StaticResource GreyForeground}"/>
+                           FontSize="16" Margin="0,5" TextWrapping="WrapWithOverflow"
+                           Height="50"/>
+                <Button HorizontalAlignment="Stretch"
+                        Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
+                        Margin="0,0, 0, 10" 
+                        VerticalAlignment="Bottom" Click="submitColor_Click">
+                    Submit
+                </Button>
             </Grid>
         </Border>
-        
+
         <!-- Color Amplification Panel-->
         <Border x:Name="panelColorAmplification" 
                 Grid.Row="0" Grid.Column="2" Margin="20,0,0,20"
                 CornerRadius="10"
                 HorizontalAlignment="Stretch"
-                Padding="10,0"
+                Padding="10,10"
                 Background="{StaticResource Background}">
             <Grid ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <Grid.ColumnDefinitions>
@@ -147,18 +161,89 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Would you be so kind as to politely ''amplify'' your chosen creative color, please"
-                           Grid.Row="0" Grid.Column="1" Margin="0, 10" FontSize="18"
+                <TextBlock Text="''Amplify'' your chosen creative color" TextAlignment="Center"
+                           Grid.Row="0" Grid.Column="1" FontSize="20" Margin="2"
                            TextWrapping="Wrap"/>
                 <Border x:Name="borderChosenCreativeColor"
-                        Grid.RowSpan="4"
-                        Background="{StaticResource Green}"
-                        Width="20" Height="20"
-                        CornerRadius="10"
+                        Grid.RowSpan="3"
+                        Width="{Binding ColorAmplification}" Height="{Binding ColorAmplification}"
+                        CornerRadius="10" 
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Center"/>
+                        VerticalAlignment="Bottom">
+                </Border>
+                <TextBlock x:Name="postAmplificationInstructionBox" 
+                           Grid.Row="1" Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           FontSize="20" FontWeight="Bold"
+                           Foreground="{StaticResource DarkBackground}"
+                           TextWrapping="Wrap"/>
 
-                <Slider Grid.Row="3" Margin="0,10"/>
+                <Slider x:Name="sliderColorAmplifier" Grid.Row="3"  Margin="0, 8, 0, 0"
+                        Maximum="240" Value="{Binding ColorAmplification, Mode=TwoWay}"/>
+            </Grid>
+        </Border>
+
+        <!-- Creative Color Utilization Panel -->
+        <Border x:Name="panelColorUtilization" 
+                Grid.Row="1" Grid.ColumnSpan="3"
+                CornerRadius="10" 
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Padding="10"
+                Background="{StaticResource Background}">
+            <Grid x:Name="gridColorUtilization">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+
+                <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1"
+                        CornerRadius="10" Margin="-50, -10, -60, -40"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{StaticResource DarkBackground}"/>
+                <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1"
+                        CornerRadius="10" Margin="-60, 0, 00,-10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{DynamicResource Green}"/>
+
+                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1"
+                        CornerRadius="10" Margin="-10,-10,10,-10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{StaticResource Green}"/>
+
+                <Border Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="1"
+                        CornerRadius="10" Margin="50,-10,-10,-30"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{StaticResource Green}"/>
+                <Border Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="2"
+                        CornerRadius="10" Margin="-20,30,-10,-10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{StaticResource DarkGreen}"/>
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1"
+                        CornerRadius="10" Margin="-10,-20,-30,-10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{StaticResource DarkGreen}"/>
+                <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1"
+                        CornerRadius="10" Margin="-60, 20, -80, -10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{StaticResource DarkBlue}"/>
             </Grid>
         </Border>
 

@@ -11,10 +11,8 @@
         AllowsTransparency="True"
         WindowStyle="None"
         FontSize="16" Foreground="{StaticResource Foreground}"
-        FontFamily="/Fonts/#Poppins" MouseDown="Window_MouseDown">
-    <!--<Window.DataContext>
-        <viewModel:MainWindowViewModel/>
-    </Window.DataContext>-->
+        FontFamily="/Fonts/#Poppins" MouseDown="Window_MouseDown"
+        UseLayoutRounding="True">
     <Border Background="{StaticResource DarkBackground}" 
             CornerRadius="10">
         <Grid>
@@ -71,17 +69,17 @@
                      Style="{StaticResource RoundedTextBox}"
                      Tag="Search"/>
 
-            <StackPanel Grid.Row="1" Grid.Column="0" Margin="0, 30">
-                <RadioButton Content="Primitive Stuff" IsChecked="True"
+            <StackPanel Grid.Row="1" Grid.Column="0" >
+                <RadioButton Content="Colorful Tabs" IsChecked="True"
                              Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="Seemingly Rough"
+                <RadioButton Content="Sciency Labs"
                              Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="Private Enough"
+                <RadioButton Content="Private Red Crabs"
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
 
             <ContentControl Grid.Row="1" Grid.Column="1"
-                            Margin="30, 10, 10, 10"
+                            Margin="20, 0, 10, 10"
                             Content="{Binding CurrentView}"/>
         </Grid>
     </Border>

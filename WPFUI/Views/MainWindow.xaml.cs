@@ -37,7 +37,6 @@ namespace WPFUI.Views
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            double y = Mouse.GetPosition(window).Y;
             if (e.ChangedButton == MouseButton.Left && Mouse.GetPosition(window).Y <= TopBar.Height)
             {
                 this.DragMove();

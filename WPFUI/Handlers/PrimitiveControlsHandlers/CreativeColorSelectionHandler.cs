@@ -8,21 +8,28 @@ namespace WPFUI.Handlers.PrimitiveControlsHandlers
 {
     public class CreativeColorSelectionHandler
     {
+        public CreativeColorSelectionHandler()
+        {
+            Random rand = new Random();
+            int curReactionIndex = rand.Next() % positiveSelectionReactions.Count;
+        }
         public Color SelectedColor { get; set; }
         public enum Color
         {
+            Undefined,
             Red,
             Green,
             Blue
         }
 
-        private int curReactionIndex = 0;
+        private int curReactionIndex;
         private List<string> positiveSelectionReactions = new List<string>
         {
             "Good one",
-            "I would have picked that one myself",
+            "Sharp one",
             "What a nice color",
-            "A lovely color indeed"
+            "Lovely color",
+            "Vibrant indeed"
         };
 
         public string SelectColorReturnResponse(Color color)

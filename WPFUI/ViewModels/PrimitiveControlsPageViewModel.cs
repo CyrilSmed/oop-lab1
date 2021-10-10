@@ -48,9 +48,6 @@ namespace WPFUI.ViewModels
             }
         }
 
-
-
-        private CreativeColorSelectionHandler colorHandler = new CreativeColorSelectionHandler();
         private string _creativeColorOutput = "";
         public string CreativeColorOutput
         {
@@ -62,6 +59,19 @@ namespace WPFUI.ViewModels
             }
         }
 
+        private int _colorAmplification;
+        public int ColorAmplification
+        {
+            get { return _colorAmplification; }
+            set
+            {
+                _colorAmplification = value;
+                CheckIfColorIsAmplified(_colorAmplification);
+                RaisePropertyChanged();
+            } 
+        }
+
+        private CreativeColorSelectionHandler colorHandler = new CreativeColorSelectionHandler();
         public CreativeColorSelectionHandler.Color SelectedColor { 
             get
             {
@@ -78,6 +88,18 @@ namespace WPFUI.ViewModels
         public void SelectColor(CreativeColorSelectionHandler.Color color)
         {
             CreativeColorOutput = colorHandler.SelectColorReturnResponse(color);
+        }
+
+        private void CheckIfColorIsAmplified(int value)
+        {
+            if(value == View.MaxColorAmplification)
+            {
+                View.ColorIsAmplified(true);
+            }
+            else
+            {
+                View.ColorIsAmplified(false);
+            }
         }
 
 

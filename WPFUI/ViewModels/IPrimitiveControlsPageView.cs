@@ -8,5 +8,8 @@ namespace WPFUI.ViewModels
 {
     public interface IPrimitiveControlsPageView
     {
+        public int MaxColorAmplification { get; }
+
+        public void ColorIsAmplified(bool isAmplified);
     }
 }
