@@ -12,10 +12,6 @@ namespace WPFUI.ViewModels
 {
     public class PrimitiveControlsPageViewModel : INotifyPropertyChanged
     {
-        public PrimitiveControlsPageViewModel() 
-        {
-            Debug.WriteLine("Info: PrimitiveControlsPageViewModel instantiated");
-        }
         public PrimitiveControlsPageViewModel(IPrimitiveControlsPageView view)
         {
             View = view;
@@ -23,8 +19,6 @@ namespace WPFUI.ViewModels
         }
 
         public IPrimitiveControlsPageView View { get; set; }
-
-
         
         private string _name = "";
         public string Name 

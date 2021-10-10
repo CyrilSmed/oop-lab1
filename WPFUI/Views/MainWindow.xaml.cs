@@ -52,5 +52,20 @@ namespace WPFUI.Views
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void PrimitiveControlsPage_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.CurrentView = ViewModel.PrimitiveControlsView;
+        }
+
+        private void FancyPage_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.CurrentView = ViewModel.FancyControlsView;
+        }
+
+        private void PrivatePage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

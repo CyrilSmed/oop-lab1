@@ -71,11 +71,11 @@
 
             <StackPanel Grid.Row="1" Grid.Column="0" >
                 <RadioButton Content="Colorful Tabs" IsChecked="True"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}" Click="PrimitiveControlsPage_Click"/>
                 <RadioButton Content="Sciency Labs"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}" Click="FancyPage_Click"/>
                 <RadioButton Content="Private Red Crabs"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}" Click="PrivatePage_Click"/>
             </StackPanel>
 
             <ContentControl Grid.Row="1" Grid.Column="1"

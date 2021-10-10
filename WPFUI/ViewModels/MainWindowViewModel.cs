@@ -18,7 +18,11 @@ namespace WPFUI.ViewModels
 
             PrimitiveControlsView = new PrimitiveControlsPageView();
             CurrentView = PrimitiveControlsView;
+
+            FancyControlsView = new FancyControlsPageView();
         }
+        public PrimitiveControlsPageView PrimitiveControlsView { get; set; }
+        public FancyControlsPageView FancyControlsView { get; set; }
 
         private object _currentView;
         public object CurrentView
@@ -30,8 +34,6 @@ namespace WPFUI.ViewModels
                 RaisePropertyChanged();
             }
         }
-
-        public PrimitiveControlsPageView PrimitiveControlsView { get; set; }
 
         public IMainWindow View { get; set; }
 
